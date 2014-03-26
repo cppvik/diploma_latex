@@ -1,0 +1,63 @@
+\subsection{Рынок СЭД в Российской Федерации} \label{review_products}
+
+В Таблице \ref{table:products} рассмотрены некоторые параметры крупнейших СЭД, представленных на российском рынке. Основное внимание уделено универсальности требований к среде исполнения и обеспечению информационной безопасности.
+
+\vspace{\baselineskip}
+В целях быстрого захвата рынка большинство СЭД ориентируются на текущие ресурсы предприятий: в качестве целевой ОС используется Microsoft Windows, в качестве системы учёта задач и базы данных – Lotus и MS SQL / Oracle. Активное развитие мобильных операционных систем побуждает производителей выпускать клиенты для Android/iOS, а также веб-интерфейс для управления задачами. Функциональность таких версий обычно урезана: например, они не позволяют добавлять к документу цифровую подпись. Однако разработчики забывают учесть три важных фактора:
+\begin{itemize}
+	\item В качестве стандарта для офисных приложений выбран формат ODT (ГОСТ Р ИСО / МЭК 26300 -- 2010), который не поддерживается Microsoft Office;
+	\item Для государственных и бюджетных учреждений использование ПО Microsoft является дополнительной крупной статьёй расхода, избежать которой помогает свободное программное обеспечение;
+	\item ПО Microsoft не имеет сертификата Министерства Обороны, что накладывает дополнительные ограничения на использование указанных СЭД.
+\end{itemize}
+
+В части обеспечения безопасности обрабатываемой информации все СЭД располагают базовым набором функций:
+\begin{itemize}
+	\item Шифруется канал передачи данных между клиентом и сервером;
+	\item Используются средства добавления и проверки электронной подписи;
+	\item Применяются механизмы разграничения доступа.
+\end{itemize}
+
+Однако, несмотря на работу с электронной подписью, не все СЭД располагают встроенным средством контроля целостности. В частности, это раскрывается в работе с версиями одного и того же документа: ЭП обычно используется при создании выходного документа, однако в процессе работы контроль целостности и подтверждение авторства отдаётся на откуп внутренним механизмам СЭД, которым можно доверять с ограничениями. В результате получаем систему, в которой возможен отказ от авторства, а в некоторых случаях и анонимное изменения документа или, наоборот, откат сделанных изменений без должного журналирования.
+
+\vspace{\baselineskip}
+Что же касается последнего пункта, то и здесь часто применяются полумеры. Очевидно, что разграничение доступа в базовом виде «писать вверх, читать вниз» есть во всех системах. Почти везде есть средства делегирования полномочий. Но когда дело доходит до более сложных процессов и требуется более дифференцированное разграничение доступа, значительная часть СЭД перестаёт удовлетворять требованиям. Это касается таких возможностей, как:
+\begin{itemize}
+	\item Право создавать задачи и документы, но не подписывать (завершать) их;
+	\item Право комментировать результаты, но не вносить изменения в тело документа;
+	\item Право просматривать атрибуты документа, но не его содержание;
+	\item Право изменять часть параметров документа, но не все атрибуты вместе;
+	\item Право работать с документом без доступа к части атрибутов документа;
+	\item И т.д.
+\end{itemize}
+
+Всё это позволяет сделать вывод о целесообразности создания новой системы электронного документооборота, основанной на открытых технологиях и решающей перечисленные проблемы.
+
+\begin{table} [h!]
+  \centering
+  \parbox{15cm}{\caption{Существующие решения}\label{table:products}}
+ \begin{center}
+  \begin{tabular}{| >{\color{white}\columncolor{Orange}}m{3cm} | m{2cm} | m{2cm} | m{2cm} | m{3cm} | m{3cm} |}
+  % \hline
+  \hline
+  \rowcolor{Periwinkle} СЭД   &\centering Платформа &\centering Поддержка клиентских ОС &\centering  Поддержка серверных ОС &\centering Лицензия &\centering Разграничение доступа  \tabularnewline \hline
+  % \hline
+  Босс-референт &\centering \cellcolor{LimeGreen} Lotus / MS SharePoint / JBOSS &\centering \cellcolor{LimeGreen} Windows / Linux / Mac OS X &\centering \cellcolor{LimeGreen} Windows / Linux &\centering \cellcolor{LimeGreen} Проприетарная / СПО &\centering \color{red} По документам  \tabularnewline \hline
+
+  1С: Документооборот &\centering \color{red} 1C: Предприятие &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering \color{red} По документам  \tabularnewline \hline
+
+  CompanyMedia / OfficeMedia &\centering \color{red} Lotus &\centering \cellcolor{LimeGreen} Любые &\centering \cellcolor{LimeGreen} Windows / Linux &\centering \cellcolor{Red} Проприетарная &\centering ?  \tabularnewline \hline
+
+  Effect Office &\centering \color{red} Microsoft &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering \color{red} На уровне разделов и рубрик  \tabularnewline \hline
+
+  LanDocs &\centering \cellcolor{LimeGreen} Oracle / Microsoft &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering \cellcolor{LimeGreen} Полное  \tabularnewline \hline
+
+  Дело (ЭОС) &\centering \cellcolor{LimeGreen} 1C / MS SharePoint / Oracle &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная\ &\centering \cellcolor{LimeGreen} Полное  \tabularnewline \hline
+
+  DIRECTUM &\centering \color{red} Microsoft &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering \cellcolor{LimeGreen} Полное  \tabularnewline \hline
+
+  OPTIMA - WorkFlow &\centering \cellcolor{LimeGreen} MS / Oracle &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering ?  \tabularnewline \hline
+
+  DocVision &\centering \cellcolor{LimeGreen} MS / Oracle &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Windows &\centering \cellcolor{Red} Проприетарная &\centering \cellcolor{LimeGreen} Полное  \tabularnewline \hline
+  \end{tabular}
+ \end{center}
+\end{table}
