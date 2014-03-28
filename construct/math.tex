@@ -18,7 +18,6 @@ P_{AC}=P_{data}+(1-P_{data})P_{auth}+(1-P_{data})(1-P_{auth})P_{den}+(1-P_{auth}
   \label{eq:equation4}
 P_{AC}'=P_{data}'+(1-P_{data}')P_{auth}'+(1-P_{data}')(1-P_{auth}')P_{den}'+(1-P_{auth}')(1-P_{data}')(1-P_{den}')P_{txt}',
 \end{equation}
-
 где вероятности $P_i'$ обозначают одновременное наступление двух событий: появление ошибки $k$ и её обнаружение соотв. модулем АС.
 
 \vspace{\baselineskip}
@@ -35,7 +34,6 @@ P_{AC}'=P_{data}'+(1-P_{data}')P_{auth}'+(1-P_{data}')(1-P_{auth}')P_{den}'+(1-P
 $$
 \sum_{m \in M} (\prod_{p_{ij} \in m} p_{ij}(1-P_{err})),
 $$
-
 где $P_{{err}_j}=P_{A_j}+P_{{AC}_j}$ для классического документооборота и $P_{{err}_j}=P_{A_j}+(P_{{AC}_j}-P_{{AC}_j}')$ для СЭД.
 
 \vspace{\baselineskip}
@@ -43,7 +41,6 @@ $$
 $$
 E_k=\frac{\sum_{m \in M} (\prod_{p_{ij} \in m} p_{ij}(1-(P_{A_j}+(P_{{AC}_j}-P_{{AC}_j}'))))}{\sum_{m \in M} (\prod_{p_{ij} \in m} p_{ij}(1-(P_{A_j}+P_{{AC}_j})))},
 $$
-
 где $P_{{AC}_j}$ рассчитывается по формуле (\ref{eq:equation3}), а $P_{{AC}_j}'$ -- по формуле (\ref{eq:equation4}).
 
 \vspace{\baselineskip}
