@@ -9,5 +9,66 @@
 \vspace{\baselineskip}
 Основные события и работы проекта представлены в таблице \ref{table:events}.
 
-\vspace{\baselineskip}
+% \begin{longtable} [h!]
+%   
+%   \parbox{15cm}{\caption{Основные события и работы проекта}\label{table:events}}
+%  \begin{center}
+%   \begin{tabular}{| c | m{2cm} | c | m{3cm} | c | c |}
+
+\begin{center}
+\begin{longtable}[h]{| m{1cm} | m{4cm} | m{1cm} | m{5cm} | m{1cm} | m{1cm} |}
+% \centering
+	% \parbox{15cm}{\caption{Основные события и работы проекта}\label{table:events}} \tabularnewline
+	\caption{Основные события и работы проекта} \label{table:events} \tabularnewline
+  \hline
+
+
+\rowcolor{Gray} \centering  $N_i$  &  \centering Наименование события & \centering Код работы & \centering  Работа &  \centering $t$, чел / час &  \centering $t$,  чел / день \tabularnewline \hline \endfirsthead   \hline
+ \multicolumn{6}{|c|}{\small\slshape (продолжение)}        \tabularnewline \hline
+ \rowcolor{Gray}  \centering $N_i$  &  \centering Наименование события & \centering  Код работы & \centering   Работа &  \centering$t$, чел / час &  \centering$t$,  чел / день               \tabularnewline \hline
+                                              \endhead        \hline
+ \multicolumn{6}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+                                              \endfoot        \hline
+                                              \endlastfoot
+
+
+ % \rowcolor{Gray}  $N_i$  &  Наименование события &  Код работы &   Работы &  $t$, чел / час &  $t$,  чел / день \tabularnewline \hline
+
+ 0 & Разработка ПО начата & 0-1 & Получение задания, анализ полученных требований к разрабатываемому ПО & 8 & 1 \tabularnewline \hline
+
+ 1 & Анализ полученных требований к разрабатываемому ПО проведен & 1-2 & Разработка и утверждение ТЗ & 24 & 3 \tabularnewline \hline
+ 
+ 2 & ТЗ разработано и утверждено & 2-3 & Анализ предметной области и существующих решений & 32 & 4 \tabularnewline \hline
+ 
+ 3 & Анализ предметной области и существующих решений проведён & 3-4 & Анализ потоков данных в процессе электронного документооборота & 80 & 10 \tabularnewline \hline
+ 
+ 4 & Анализ потоков данных в процессе электронного документооборота проведён & 4-5 & Разработка общей структуры ПО и пользовательского интерфейса & 32 & 4 \tabularnewline \hline
+ 
+ 5 & Разработка общей структуры ПО и пользовательского интерфейса завершена & 5-6 & Разработка алгоритмов, структуры входных и выходных данных & 72 & 9 \tabularnewline \hline
+ 
+ \multirow{2}{1cm}{6} & \multirow{2}{4cm}{Разработка алгоритмов, структуры входных и выходных данных завершена} & 6-7 & Реализация пользовательского интерфейса & 40 & 5 \tabularnewline \cline{3-6} 
+ & & 6-8 & Программная реализация модулей защищенной обработки, передачи и хранения информации & 80 & 10 \tabularnewline \hline
+
+7 & Реализация пользовательского интерфейса завершена & 7-8 & Фиктивная работа & 0 & 0 \tabularnewline \hline
+
+\multirow{6}{1cm}{8} & \multirow{6}{4cm}{Программная реализация модулей защищенной обработки, передачи и хранения информации завершена} & & & & \tabularnewline
+ & & & & & \tabularnewline
+ & & 8-9 & Тестирование ПО & 64 & 8 \tabularnewline 
+ & & & & & \tabularnewline
+ & & & & & \tabularnewline \cline{3-6} 
+ & & & & & \tabularnewline
+ & & 8-10 & Разработка документации & 80 & 10 \tabularnewline
+ & & & & & \tabularnewline \hline
+
+ 9 & Тестирование ПО завершено & 9-11 & Внесение изменений в ПО & 40 & 5 \tabularnewline \hline
+
+ 10 & Документация разработана & 1-12 & Фиктивная работа & 0 & 0 \tabularnewline \hline
+
+ 11 & Внесение изменений в ПО закончено & 11-12 & Фиктивная работа & 0 & 0 \tabularnewline \hline
+
+ 12 & Разработка ПО закончена & -- & -- & -- & -- \tabularnewline \hline
+\end{longtable}
+\end{center}
+
+
 Рассчитанные оставшиеся параметры элементов сети (сроки наступления событий, резервы времени событий, полный и свободный резервы времени работ) приведены в таблице \ref{table:time_per_work}.
