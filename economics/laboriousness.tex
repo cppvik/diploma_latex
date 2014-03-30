@@ -21,7 +21,7 @@ T = \frac {3 \cdot T_{MIN} + 2 \cdot T_{MAX}} {5},
   \centering
   \parbox{15cm}{\caption{Распределение работ по этапам}\label{table:works}}
  \begin{center}
-  \begin{tabular}{| c | m{3cm} | c | m{5cm} | m{1cm} | m{1cm} | m{1cm} | m{1cm} |}
+  \begin{tabular}{| c | m{2.5cm} | c | m{5cm} | m{1cm} | m{1cm} | m{1cm} | m{1cm} |}
   \hline
  \rowcolor{Gray} №  &\centering Этап &\centering № работы &\centering  Содержание работы &\centering $T_{MIN}$, чел / часы &\centering $T_{MAX}$, чел / часы &\centering $T$, чел / часы &\centering $T$, чел / дни \tabularnewline \hline
 
@@ -36,7 +36,9 @@ T = \frac {3 \cdot T_{MIN} + 2 \cdot T_{MAX}} {5},
 \multirow{2}{*}{3} & \multirow{2}{3cm}{Разработка программных модулей} & 7 & Реализация пользовательского интерфейса & 32 & 52 & 40 & 5 \\ \cline{3-8}
 	& & 8 & Программная реализация модулей защищенной обработки, передачи и хранения информации & 72 & 92 & 80 & 10 \\ \hline
 
-\multirow{4}{*}{4} & \multirow{4}{3cm}{Тестирование и отладка разрабатываемого ПО} & 9 & Тестирование ПО & 64 & 84 & 72 & 9 \\ \cline{3-8}
+\multirow{6}{*}{4} & \multirow{6}{2.5cm}{Тестирование и отладка разрабатываемого ПО} & & & & & & \\
+  & & 9 & Тестирование ПО & 64 & 84 & 72 & 9 \\
+  & & & & & & & \\ \cline{3-8}
 	& & & & & & & \\
 	& & 10 & Внесение изменений в ПО & 32 & 52 & 40 & 5 \\
 	& & & & & & & \\ \hline
@@ -51,3 +53,7 @@ T = \frac {3 \cdot T_{MIN} + 2 \cdot T_{MAX}} {5},
  $$
 Q_P = Q_{\textrm{ОЖ}} = 77 (\textrm{чел/дней}) = 616 (\textrm{чел/час}).
  $$
+
+\input{economics/workers}	% Определение численности исполнителей
+\input{economics/net_graph}	% Построение сетевого графика
+\input{economics/gantt}		% Диаграмма Ганта
