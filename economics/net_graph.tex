@@ -9,23 +9,18 @@
 \vspace{\baselineskip}
 Основные события и работы проекта представлены в таблице \ref{table:events}.
 
-% \begin{longtable} [h!]
-%   
-%   \parbox{15cm}{\caption{Основные события и работы проекта}\label{table:events}}
-%  \begin{center}
-%   \begin{tabular}{| c | m{2cm} | c | m{3cm} | c | c |}
 
 \begin{center}
-\begin{longtable}[h]{| m{1cm} | m{4cm} | m{1.5cm} | m{5cm} | m{1cm} | m{1cm} |}
-% \centering
+\begin{longtable}[h]{| >{\centering}m{1cm} | >{\centering}m{4cm} | >{\centering}m{1.5cm} | >{\centering}m{5cm} | >{\centering}m{1cm} | >{\centering}m{1cm} |}
+% 
 	% \parbox{15cm}{\caption{Основные события и работы проекта}\label{table:events}} \tabularnewline
 	\caption{Основные события и работы проекта} \label{table:events} \tabularnewline
   \hline
 
 
-\rowcolor{Gray} \centering  $N_i$  &  \centering Наименование события & \centering Код работы & \centering  Работа &  \centering $t$, чел / час &  \centering $t$,  чел / день \tabularnewline \hline \endfirsthead   \hline
+\rowcolor{Gray}   $N_i$  &   Наименование события &  Код работы &   Работа &   $t$, чел / час &   $t$,  чел / день \tabularnewline \hline \endfirsthead   \hline
  \multicolumn{6}{|c|}{\small\slshape (продолжение)}        \tabularnewline \hline
- \rowcolor{Gray}  \centering $N_i$  &  \centering Наименование события & \centering  Код работы & \centering   Работа &  \centering$t$, чел / час &  \centering$t$,  чел / день               \tabularnewline \hline
+ \rowcolor{Gray}   $N_i$  &   Наименование события &   Код работы &    Работа &  $t$, чел / час &  $t$,  чел / день               \tabularnewline \hline
                                               \endhead        \hline
  \multicolumn{6}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
                                               \endfoot        \hline
@@ -73,12 +68,12 @@
 
 Рассчитанные оставшиеся параметры элементов сети (сроки наступления событий, резервы времени событий, полный и свободный резервы времени работ) приведены в таблице \ref{table:time_per_work}.
 \begin{table} [h!]
-  \centering
+  
   \parbox{15cm}{\caption{Временные затраты на каждый этап работы}\label{table:time_per_work}}
  \begin{center}
-  \begin{tabular}{| c | m{1.5cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} | m{1.5cm} |}
+  \begin{tabular}{| c | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} |}
   \hline
- \rowcolor{Gray} $N_i$  &\centering Код работы $i-j$ &\centering $t_{i-j}$, чел / день &\centering  $T_i^P$, чел / день &\centering $T_i^\textrm{П}$, чел / день &\centering $R_i$, чел / день &\centering $R_{i-j}^\textrm{П}$, чел / день &\centering $R_{i-j}^C$, чел / день \tabularnewline \hline
+ \rowcolor{Gray} $N_i$  & Код работы $i-j$ & $t_{i-j}$, чел / день &  $T_i^P$, чел / день & $T_i^\textrm{П}$, чел / день & $R_i$, чел / день & $R_{i-j}^\textrm{П}$, чел / день & $R_{i-j}^C$, чел / день \tabularnewline \hline
 
  0 & 0-1 & 1 & 0 & 0 & 0 & 0 & 0 \tabularnewline \hline
  1 & 1-2 & 3 & 1 & 1 & 0 & 0 & 0 \tabularnewline \hline

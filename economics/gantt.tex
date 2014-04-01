@@ -3,13 +3,13 @@
 Для иллюстрации последовательности проводимых работ приведем диаграмму Гантта данного проекта, на которой по оси $X$ изображены календарные дни от начала до конца проекта, а по оси $Y$ – выполняемые этапы работ.
 Диаграмма Гантта приведена на рисунке \ref{img:gant_diagram}. Занятость исполнителей приведена в таблице \ref{table:workers_dates}.
 
-\begin{table} [h]
-  \centering
+\begin{table} [h!]
+  
   \parbox{15cm}{\caption{Временные затраты на каждый этап работы}\label{table:workers_dates}}
  \begin{center}
-  \begin{tabular}{| m{2cm} | m{4cm} | m{4cm} | m{5cm}|}
+  \begin{tabular}{| >{\centering}m{2cm} | >{\centering}m{4cm} | >{\centering}m{4cm} | >{\centering}m{5cm}|}
   \hline
- \rowcolor{Gray} \centering Код работы  &\centering Дата начала &\centering Дата окончания &\centering  Исполнитель \tabularnewline \hline
+ \rowcolor{Gray}  Код работы  & Дата начала & Дата окончания &  Исполнитель \tabularnewline \hline
 
 0-1 & 07.02.2014 & 07.02.2014 & Ведущий программист \tabularnewline \hline
 1-2 & 09.02.2014 & 12.02.2014 & Ведущий программист \tabularnewline \hline
@@ -26,7 +26,7 @@
  \end{center}
 \end{table}
 
-\begin{figure} [h] 
+\begin{figure} [h!] 
   \center
   \includegraphics [scale=0.5] {gantt}
   \caption{Диаграмма Гантта проводимых работ} 

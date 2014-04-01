@@ -1,0 +1,55 @@
+\subsection{Затраты на выплату заработной платы} \label{salary}
+
+Затраты на выплату исполнителям заработной платы линейно связаны с трудоемкостью и определяется следующим соотношением:
+\begin{equation}
+  \label{eq:salary}
+C_\textrm{ЗАРП} = C_\textrm{З.ОСН} + C_\textrm{З.ДОП} + C_\textrm{З.ОТЧ},
+\end{equation}
+где $C_\textrm{З.ОСН}$ -- основная заработная плата, $C_\textrm{З.ДОП}$ -- дополнительная заработная плата, $C_\textrm{З.ОТЧ}$ -- отчисление с заработной платы.
+
+\vspace{\baselineskip}
+Расчёт основной заработной платы (оплаты труда непосредственных исполнителей):
+\begin{equation}
+  \label{eq:salary_counting}
+C_\textrm{З.ОСН} = T_\textrm{ЗАН} \times O_\textrm{ДН},
+\end{equation}
+где $T_\textrm{ЗАН}$ -- число дней, отработанных исполнителем проекта, а $O_\textrm{ДН}$ -- днейвной оклад исполнителя, который при 8-часовом рабочем дней рассчитывается по формуле:
+\begin{equation}
+  \label{eq:worker_fee}
+O_\textrm{ДН} = \frac {O_\textrm{МЕС} \cdot 8} {F_M},
+\end{equation}
+где $O_\textrm{МЕС}$ -- месячный оклад, а $F_M$ -- месячный фонд рабочего времени (\ref{eq:time_fund_month_common}).
+
+\vspace{\baselineskip}
+С учетом налога на доходы физических лиц размер оклада увеличивается:
+\begin{equation}
+  \label{eq:worker_fee_with_taxes}
+O_\textrm{МЕС} = O \cdot (1 + \frac {H_\textrm{ДФЛ}} {100}),
+\end{equation}
+где $O$ -- <<чистый>> оклад, $H_\textrm{ДФЛ}$ -- налог на доходы физических лиц ($13\%$).
+
+\vspace{\baselineskip}
+Сведем результаты расчета в таблицу с перечнем исполнителей и их месячных и дневных окладов, а также времени участия в проекте и рассчитанной основной заработной платой каждого исполнителя (таблица \ref{table:fee_all_workers}).
+
+\begin{table} [h!]
+  \parbox{15cm}{\caption{Заработная плата исполнителей}\label{table:fee_all_workers}}
+ \begin{center}
+  \begin{tabular}{| c | >{\centering}m{3cm} | >{\centering}m{2.5cm} | >{\centering}m{2.5cm} | >{\centering}m{2.5cm} | >{\centering}m{2.5cm} |}
+  \hline
+ \rowcolor{Gray} №  & Должность & <<Чистый>> оклад, руб. & Дневной оклад, руб. &  Трудозатраты, чел-дни & Затраты на зарплату, руб. \tabularnewline \hline
+
+ 1 & Ведущий программист & 60 000 & 3267,47 & 54 & 176443,37 \tabularnewline \hline
+ 2 & Программист & 50 000 & 2722,89 & 15 & 40843,37 \tabularnewline \hline
+
+   \end{tabular}
+ \end{center}
+\end{table}
+
+Из таблицы получим общие затраты проекта на заработную плату исполнителей: $C_\textrm{З.ОСН} = 217286,24$ руб.
+
+\vspace{\baselineskip}
+Расходы на дополнительную заработную плату учитывают все выплаты непосредственным исполнителям за время, не проработанное производстве, но предусмотренное законодательством. Величина выплат составляет $20\%$ от размера основной заработной платы: 
+\begin{equation}
+  \label{eq:worker_extra_fee}
+C_\textrm{З.ДОП} = 0.2 \cdot C_\textrm{З.ОСН} = 0.2 \cdot 217286,24 = 43457,25 (\textrm{руб.})
+\end{equation}
