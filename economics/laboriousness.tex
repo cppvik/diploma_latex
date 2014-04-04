@@ -20,7 +20,8 @@ T = \frac {3 \cdot T_{MIN} + 2 \cdot T_{MAX}} {5},
 \begin{table} [h!]
   \parbox{15cm}{\caption{Распределение работ по этапам}\label{table:works}}
  \begin{center}
-  \begin{tabular}{| c | >{\centering}m{2.5cm} | c | >{\centering}m{5cm} | >{\centering}m{1cm} | >{\centering}m{1cm} | >{\centering}m{1cm} | >{\centering}m{1cm} |}
+ \renewcommand\multirowsetup{\centering}
+  \begin{tabular}{| c | >{\centering}m{3cm} | c | >{\centering}m{5cm} | >{\centering}m{1cm} | >{\centering}m{1cm} | >{\centering}m{1cm} | >{\centering}m{1cm} |}
   \hline
  \rowcolor{Gray} №  & Этап & № работы &  Содержание работы & $T_{MIN}$, чел / часы & $T_{MAX}$, чел / часы & $T$, чел / часы & $T$, чел / дни \tabularnewline \hline
 
@@ -59,3 +60,8 @@ $$
 \input{economics/costs_analysus}    % Анализ структуры затрат проекта
 \input{economics/salary}            % Затраты на выплату заработной платы
 \input{economics/social_fee}        % Отчисления на социальные нужды
+\input{economics/material_costs}    % Материальные затраты
+\input{economics/other_costs}       % Прочие затраты
+\input{economics/office_costs}      % Затраты на организацию рабочих мест
+\input{economics/other_costs_2}     % Накладные расходы
+\input{economics/sum_cost}          % Суммарные затраты на реализацию программного проекта
