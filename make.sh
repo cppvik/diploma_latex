@@ -14,7 +14,7 @@ clean)
 	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.pdf
 	;;
 *)
-	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.pdf
+#	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.pdf
         pdflatex diploma.tex --draftmode
         bibtex diploma.aux
         pdflatex diploma.tex
