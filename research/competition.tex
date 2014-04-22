@@ -2,7 +2,7 @@
 
 При совместной конкурентной работе пользователей в системе электронного документооборота существует проблема синхронизации вносимых изменений. Так, два редактора, работая над одним документом (но каждый со своим набором задач), во время внесения изменений блокируют работу друг друга, так как документ в рассматрвиаемом контексте -- ограниченный ресурс. Схема такой модели в среде AnyLogic представлена на рис. \ref{img:competition_old_scheme}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_old_scheme}
   \caption{Схема конкурентной обработки документа с блокировкой}
@@ -14,7 +14,7 @@
 \vspace{\baselineskip}
 Альтернативой является такая схема организации обработки документов, при которой разрешено одновременное внесение изменений в документ, что справедливо для разрабатываемой системы. Это становится возможным благодаря регистрации не состояний документа, а вносимых в него изменений в виде разницы текущего и предыдущего состояний. Такая разностная запись называется <<патч>>. Пример патча см. на рис. \ref{img:git_patch}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{git_patch}
   \caption{Пример записи состояния документа в виде патча}
@@ -26,7 +26,7 @@
 \vspace{\baselineskip}
 Схема этой модели в среде AnyLogic представлена на рис. \ref{img:competition_new_scheme}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_new_scheme}
   \caption{Схема конкурентной обработки документа без блокировки}
@@ -39,14 +39,14 @@
 \vspace{\baselineskip}
 В процессе эксперимента был промоделирован один рабочий день (с 9:00 до 18:00), в течение которого каждому из редакторов на обработку поступило 19 заявок. Число обработанных заявок в схеме с блокировкой показано на рис. \ref{img:competition_old_done}, в схеме без блокировок -- на рис. \ref{img:competition_new_done}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_old_done}
   \caption{Число обработанных заявок в схеме с блокировкой}
   \label{img:competition_old_done}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_new_done}
   \caption{Число обработанных заявок в схеме без блокировки}
@@ -56,14 +56,14 @@
 \vspace{\baselineskip}
 Как видно из представленных результатов, несмотря на б\textit{о}льшее среднее время обработки одной заявки, число успешно обработанных заявок в схеме без блокировки за один рабочий день в $~1.5$ раза больше, чем число успешно обработанных заявок в схеме с блокировкой за тот же период. Также по этим рисункам видно, что за счёт блокировок заявки редакторами в первой схеме обрабатывались неравномерно, в отличие от второй схемы. Дополнительным подтверждением этому служат временные диаграммы загруженности редакторов в течение рабочего дня, представленные на рис. \ref{img:competition_old_gantt} и \ref{img:competition_new_gantt}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_old_gantt}
   \caption{Временная диаграмма загруженности редакторов в течение рабочего дня в схеме с блокировкой}
   \label{img:competition_old_gantt}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_new_gantt}
   \caption{Временная диаграмма загруженности редакторов в течение рабочего дня в схеме без блокировки}
@@ -76,14 +76,14 @@
 \vspace{\baselineskip}
 Ещё один немаловажный показатель -- загруженность очереди на обработку. Соответствующие графики приведены на рис. \ref{img:competition_old_queue} и \ref{img:competition_new_queue}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_old_queue}
   \caption{Загруженность очереди на обработку в схеме с блокировкой}
   \label{img:competition_old_queue}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{competition_new_queue}
   \caption{Загруженность очереди на обработку в схеме без блокировки}
