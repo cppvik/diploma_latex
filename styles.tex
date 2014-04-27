@@ -32,3 +32,12 @@
 
 %%% Оглавление %%%
 \renewcommand{\cftchapdotsep}{\cftdotsep}
+
+%%% Переносы %%%
+\begingroup
+    \lccode`\==`\-
+    % Пример: задать правила переноса для `коммерческо-посредническая':
+    \hyphenation{бе-зо-пас-ность}
+    \hyphenation{бе-зо-пас-ности}
+    \hyphenation{бе-зо-пас-ностью}
+\endgroup
