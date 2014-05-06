@@ -13,16 +13,16 @@
 \begin{center}
 \renewcommand\multirowsetup{\centering}
 \begin{longtable}[h]{| >{\centering}m{1cm} | >{\centering}m{4cm} | >{\centering}m{1.5cm} | >{\centering}m{5cm} | >{\centering}m{1cm} | >{\centering}m{1cm} |}
-
+  \captionsetup{justification=raggedright}
 	\caption{Основные события и работы проекта} \label{table:events} \tabularnewline
   \hline
 
 
 \rowcolor{Gray}   $N_i$  &   Наименование события &  Код работы &   Работа &   $t$, чел / час &   $t$,  чел / день \tabularnewline \hline \endfirsthead   \hline
- \multicolumn{6}{|c|}{\small\slshape (продолжение)}        \tabularnewline \hline
+ \multicolumn{6}{|c|}{\small\slshape (продолжение таблицы \ref{table:events})}        \tabularnewline \hline
  \rowcolor{Gray}   $N_i$  &   Наименование события &   Код работы &    Работа &  $t$, чел / час &  $t$,  чел / день               \tabularnewline \hline
                                               \endhead        \hline
- \multicolumn{6}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+ % \multicolumn{6}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
                                               \endfoot        \hline
                                               \endlastfoot
 
@@ -39,10 +39,10 @@
  
  4 & Анализ потоков данных в процессе электронного документооборота проведён & 4-5 & Разработка общей структуры ПО и пользовательского интерфейса & 32 & 4 \tabularnewline \hline
  
- 5 & Разработка общей структуры ПО и пользовательского интерфейса завершена & 5-6 & Разработка алгоритмов, структуры входных и выходных данных & 72 & 9 \tabularnewline \hline
+ 5 & Разработка общей структуры ПО и пользовательского интерфейса завершена & 5-6 & Разработка алгоритмов, структуры входных и выходных данных & 72 & 9 \tabularnewline \hline \pagebreak
  
- \multirow{2}{1cm}{6} & \multirow{2}{4cm}{Разработка алгоритмов, структуры входных и выходных данных завершена} & 6-7 & Реализация пользовательского интерфейса & 40 & 5 \tabularnewline \cline{3-6} 
- & & 6-8 & Программная реализация модулей защищенной обработки, передачи и хранения информации & 80 & 10 \tabularnewline \hline
+\multirow{2}{1cm}{6} & \multirow{2}{4cm}{Разработка алгоритмов, структуры входных и выходных данных завершена} & 6-7 & Реализация пользовательского интерфейса & 40 & 5 \tabularnewline \cline{3-6}
+& & 6-8 & Программная реализация модулей защищенной обработки, передачи и хранения информации & 80 & 10 \tabularnewline \hline
 
 7 & Реализация пользовательского интерфейса завершена & 7-8 & Фиктивная работа & 0 & 0 \tabularnewline \hline
 
@@ -69,7 +69,8 @@
 Рассчитанные оставшиеся параметры элементов сети (сроки наступления событий, резервы времени событий, полный и свободный резервы времени работ) приведены в таблице \ref{table:time_per_work}.
 \begin{table} [h!]
   
-  \parbox{15cm}{\caption{Временные затраты на каждый этап работы}\label{table:time_per_work}}
+  \captionsetup{justification=raggedright}
+  \caption{Временные затраты на каждый этап работы}\label{table:time_per_work}
  \begin{center}
   \begin{tabular}{| c | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} |}
   \hline

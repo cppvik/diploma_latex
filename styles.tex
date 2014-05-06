@@ -1,21 +1,21 @@
 %%% Макет страницы %%%
-\geometry{a4paper,top=2cm,bottom=2cm,left=3cm,right=1cm}
+\geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=1cm}
 
 %%% Кодировки и шрифты %%%
-\renewcommand{\rmdefault}{ftm} % Включаем Times New Roman
-% \renewcommand{\baselinestretch}{1.5} % Полуторный интервал для всего текста
+\renewcommand{\rmdefault}{ftm}			% Включаем Times New Roman
+% \renewcommand{\baselinestretch}{1.5}	% Полуторный интервал для всего текста
+\onehalfspacing							% Полуторный интервал для всего текста
 
 %%% Выравнивание и переносы %%%
 \sloppy					% Избавляемся от переполнений
 \clubpenalty=10000		% Запрещаем разрыв страницы после первой строки абзаца
 \widowpenalty=10000		% Запрещаем разрыв страницы после последней строки абзаца
-\onehalfspacing
 % \setlength{\parskip}{\baselineskip}
 
 %%% Библиография %%%
 \makeatletter
 \bibliographystyle{utf8gost705u}	% Оформляем библиографию в соответствии с ГОСТ 7.0.5
-\renewcommand{\@biblabel}[1]{#1.}	% Заменяем библиографию с квадратных скобок на точку:
+\renewcommand{\@biblabel}[1]{#1}	% Заменяем библиографию с квадратных скобок на точку:
 \makeatother
 
 %%% Изображения %%%
@@ -41,3 +41,7 @@
     \hyphenation{бе-зо-пас-ности}
     \hyphenation{бе-зо-пас-ностью}
 \endgroup
+
+%%% Подписи рисунков и таблиц %%%
+\DeclareCaptionLabelSeparator{defffis}{ --- }
+\captionsetup{justification=centering,labelsep=defffis}
