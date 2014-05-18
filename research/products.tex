@@ -1,66 +1,66 @@
 \subsection{Рынок СЭД в Российской Федерации} \label{review_products}
 
-В Таблице \ref{table:products} рассмотрены некоторые параметры крупнейших СЭД, представленных на российском рынке. Основное внимание уделено универсальности требований к среде исполнения и обеспечению информационной безопасности.
+В Таблице \ref{table:products} рассмотрены некоторые параметры крупнейших СЭД, представленных на российском рынке \cite{ixbt} \cite{evfrat}. Основное внимание уделено универсальности требований к среде исполнения и обеспечению информационной безопасности.
 
 \vspace{\baselineskip}
-В целях быстрого захвата рынка большинство СЭД ориентируются на текущие ресурсы предприятий: в качестве целевой ОС используется Microsoft Windows, в качестве системы учёта задач и базы данных – Lotus и MS SQL / Oracle. Активное развитие мобильных операционных систем побуждает производителей выпускать клиенты для Android/iOS, а также веб-интерфейс для управления задачами. Функциональность таких версий обычно урезана: например, они не позволяют добавлять к документу цифровую подпись. Однако разработчики забывают учесть три важных фактора:
-\begin{itemize}
-	\item В качестве стандарта для офисных приложений выбран формат ODT (ГОСТ Р ИСО / МЭК 26300 --- 2010), который не поддерживается Microsoft Office;
-	\item Для государственных и бюджетных учреждений использование ПО Microsoft является дополнительной крупной статьёй расхода, избежать которой помогает свободное программное обеспечение;
-	\item ПО Microsoft не имеет сертификата Министерства Обороны, что накладывает дополнительные ограничения на использование указанных СЭД.
-\end{itemize}
-
-В части обеспечения безопасности обрабатываемой информации все СЭД располагают базовым набором функций:
-\begin{itemize}
-	\item Шифруется канал передачи данных между клиентом и сервером;
-	\item Используются средства добавления и проверки электронной подписи;
-	\item Применяются механизмы разграничения доступа.
-\end{itemize}
-
-Однако, несмотря на работу с электронной подписью, не все СЭД располагают встроенным средством контроля целостности. В частности, это раскрывается в работе с версиями одного и того же документа: ЭП обычно используется при создании выходного документа, однако в процессе работы контроль целостности и подтверждение авторства отдаётся на откуп внутренним механизмам СЭД, которым можно доверять с ограничениями. В результате получаем систему, в которой возможен отказ от авторства, а в некоторых случаях и анонимное изменения документа или, наоборот, откат сделанных изменений без должного журналирования.
-
-\vspace{\baselineskip}
-Что же касается последнего пункта, то и здесь часто применяются полумеры. Очевидно, что разграничение доступа в базовом виде «писать вверх, читать вниз» есть во всех системах. Почти везде есть средства делегирования полномочий. Но когда дело доходит до более сложных процессов и требуется более дифференцированное разграничение доступа, значительная часть СЭД перестаёт удовлетворять требованиям. Это касается таких возможностей, как:
-\begin{itemize}
-	\item Право создавать задачи и документы, но не подписывать (завершать) их;
-	\item Право комментировать результаты, но не вносить изменения в тело документа;
-	\item Право просматривать атрибуты документа, но не его содержание;
-	\item Право изменять часть параметров документа, но не все атрибуты вместе;
-	\item Право работать с документом без доступа к части атрибутов документа;
-	\item И т.д.
-\end{itemize}
-
-Всё это позволяет сделать вывод о целесообразности создания новой системы электронного документооборота, основанной на открытых технологиях и решающей перечисленные проблемы.
+В целях быстрого захвата рынка большинство СЭД ориентируются на текущие ресурсы предприятий: в качестве целевой ОС используется Microsoft Windows, в качестве системы учёта задач и базы данных – Lotus и MS SQL / Oracle. Активное развитие мобильных операционных систем побуждает производителей выпускать клиенты для Android/iOS, а также веб-интерфейс для управления задачами. Функциональность таких версий обычно урезана: например, они не позволяют добавлять к документу цифровую подпись. Однако для государственных и бюджетных учреждений использование ПО Microsoft является дополнительной крупной статьёй расхода, избежать которой помогает свободное программное обеспечение.
 
 \begin{table}[h!]
   \captionsetup{justification=raggedright}
   % \caption{Существующие решения}\label{table:products}
   \caption{Существующие решения}\label{table:products}
  \begin{center}
-  \begin{tabular}{| >{\centering}m{4cm} | >{\centering}m{3cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{3cm} |}
+  \begin{tabular}{| >{\centering}m{3cm} | >{\centering}m{3cm} | >{\centering}m{2cm} | >{\centering}m{3cm} | >{\centering}m{3cm} |}
   % \hline
   \hline
-  \rowcolor{Gray} СЭД   & Платформа & Поддержка клиентских ОС &  Поддержка серверных ОС & Лицензия  \tabularnewline \hline
+  \rowcolor{Gray} СЭД   & Платформа & Поддержка ОС & Встроенное средство контроля целостности & Поддержка различных средств аутентификации  \tabularnewline \hline
   % \hline
-  Босс-референт & \color{Green} Lotus / MS SharePoint / JBOSS & \color{Green} Windows / Linux / Mac OS X & \color{Green} Windows / Linux & \color{Green} Проприетарная / СПО   \tabularnewline \hline
+  Босс-референт & \color{Green} Lotus / MS SharePoint / JBOSS & \color{Green} Windows / Linux & \color{Red} \textbf{---} &  \color{Green} \textbf{+} \tabularnewline \hline
 
-  1С: Документооборот & \color{Red} 1C: Предприятие & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная   \tabularnewline \hline
+  1С: Документооборот & \color{Red} 1C: Предприятие & \color{Red} Windows & \color{Red} \textbf{---} & +/-- \tabularnewline \hline
 
-  CompanyMedia / OfficeMedia & \color{Red} Lotus & \color{Green} Любые & \color{Green} Windows / Linux & \color{Red} Проприетарная   \tabularnewline \hline
+  % CompanyMedia / OfficeMedia & \color{Red} Lotus & \color{Green} Любые & \color{Green} Windows / Linux    \tabularnewline \hline
 
-  Effect Office & \color{Red} Microsoft & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная  \tabularnewline \hline
+  % Effect Office & \color{Red} Microsoft & \color{Red} Windows   \tabularnewline \hline
 
-  LanDocs & \color{Green} Oracle / Microsoft & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная  \tabularnewline \hline
+  % LanDocs & \color{Green} Oracle / Microsoft & \color{Red} Windows   \tabularnewline \hline
 
-  Дело (ЭОС) & \color{Green} 1C / MS SharePoint / Oracle & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная\  \tabularnewline \hline
+  Дело (ЭОС) & \color{Green} 1C / MS SharePoint / Oracle & \color{Red} Windows & \color{Red} \textbf{---} & +/--  \tabularnewline \hline
 
-  DIRECTUM & \color{Red} Microsoft & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная  \tabularnewline \hline
+  DIRECTUM & \color{Red} Microsoft & \color{Red} Windows  & \color{Red} \textbf{---} & +/--  \tabularnewline \hline
 
-  OPTIMA - WorkFlow & \color{Green} MS / Oracle & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная   \tabularnewline \hline
+  OPTIMA - WorkFlow & \color{Green} MS / Oracle & \color{Red} Windows & +/-- & +/--   \tabularnewline \hline
 
-  DocVision & \color{Green} MS / Oracle & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная  \tabularnewline \hline
+  DocsVision & \color{Green} MS / Oracle & \color{Red} Windows  & +/-- & \color{Green} \textbf{+} \tabularnewline \hline
 
-  Е1 ЕВФРАТ & \color{Green} MS / Oracle & \color{Red} Windows & \color{Red} Windows & \color{Red} Проприетарная  \tabularnewline \hline
+  Е1 ЕВФРАТ & \color{Green} MS / Oracle & \color{Red} Windows & +/-- & +/--  \tabularnewline \hline
   \end{tabular}
  \end{center}
 \end{table}
+
+\vspace{\baselineskip}
+В части обеспечения безопасности обрабатываемой информации все СЭД располагают базовым набором функций:
+\begin{itemize}
+  \item Шифруется канал передачи данных между клиентом и сервером;
+  \item Используются средства добавления и проверки электронной подписи;
+  \item Применяются механизмы разграничения доступа.
+\end{itemize}
+
+При этом, несмотря на работу с электронной подписью, не все СЭД располагают встроенным средством контроля целостности. В частности, это раскрывается в работе с версиями одного и того же документа: ЭП обычно используется при создании выходного документа, однако в процессе работы контроль целостности и подтверждение авторства отдаётся на откуп внутренним механизмам СЭД, которые не описаны явным образом. В результате получаем систему, в которой возможен отказ от авторства, а в некоторых случаях и анонимное изменения документа или, наоборот, откат сделанных изменений без должного журналирования.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{products}
+  \caption{Сравнение систем электронного документооборота}
+  \label{img:products}
+\end{figure}
+\vspace{\baselineskip}
+Введём комплексный показатель информационной безопасности
+$$
+M = \sum_{i=1}^N k_i \cdot M_i,
+$$
+где $k_i$ --- весовой коэффициент, полученный экспертным методом, а $M_i$ -- значение соответствующего фактора.
+Оценив таким образом современные СЭД по показателям, описанным в табл. \ref{table:products}, можно получить их наглядное сравнение, представленное на рис. \ref{img:products}.
+
+% \vspace{\baselineskip}
+% Всё это позволяет сделать вывод о целесообразности создания новой системы электронного документооборота, основанной на открытых технологиях и решающей перечисленные проблемы.
