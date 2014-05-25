@@ -41,7 +41,53 @@
     \hyphenation{бе-зо-пас-ности}
     \hyphenation{бе-зо-пас-ностью}
 \endgroup
+\newcommand{\ndash}{\nobreakdash--} % неразрывный перенос
 
 %%% Подписи рисунков и таблиц %%%
 \DeclareCaptionLabelSeparator{defffis}{ --- }
 \captionsetup{justification=centering,labelsep=defffis}
+
+%%% Тире в перечислениях %%%%
+\renewcommand{\labelitemi}{\normalfont\bfseries{--}}
+
+%%% Переносы математики %%%
+\newcommand{\hm}[1]{#1\nobreak\discretionary{}{\hbox{\ensuremath{#1}}}{}}
+\begingroup
+\catcode`\+\active\gdef+{\mathchar8235\nobreak\discretionary{}%
+{\usefont{OT1}{cmr}{m}{n}\char43}{}}
+\catcode`\-\active\gdef-{\mathchar8704\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char0}{}}
+\catcode`\=\active\gdef={\mathchar12349\nobreak\discretionary{}%
+{\usefont{OT1}{cmr}{m}{n}\char61}{}}
+\catcode`\<\active\gdef<{\mathchar"313C\nobreak\discretionary{}%
+{\usefont{OML}{cmm}{m}{n}\char60}{}}
+\catcode`\>\active\gdef>{\mathchar"313E\nobreak\discretionary{}%
+{\usefont{OML}{cmm}{m}{n}\char62}{}}
+\endgroup
+\def\times{\mathchar8706\nobreak\discretionary{}{\usefont{OMS}{cmsy}{m}{n}\char
+2}{}}
+\def\subset{\mathchar"321A\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char26}{}}
+%\supset,\subseteq,\notin
+\def\neq{\not=\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char54\usefont{OT1}{cmr}{m}{n}\char61}{}}
+\def\sim{\mathchar"3218\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char24}{}}
+\def\in{\mathchar"3232\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char50}{}}
+\def\to{\mathchar"3221\nobreak\discretionary{}%
+{\usefont{OMS}{cmsy}{m}{n}\char33}{}}
+%%% Конец переносов математики %%%
+
+
+%%% Запрет переносов заголовков %%%
+% \makeatletter
+% % запрещаем переносы в названиях секций
+% \renewcommand{\section}{\@startsection{section}{1}{0pt}%
+%                                 {-3.5ex plus -1ex minus -.2ex}%
+%                                 {2.3ex plus .2ex}%
+% {\flushleft\hyphenpenalty=10000\normalfont\Large\bfseries}}
+% % меняем заголовок для команды \chapter и запрещаем переносы слов
+% \usepackage {titlesec}
+% \titleformat{\chapter}{\thispagestyle{myheadings}\flushleft\hyphenpenalty=10000\normalfont\huge\bfseries}{\thechapter\ }{0pt}{\Huge}
+% \makeatother
