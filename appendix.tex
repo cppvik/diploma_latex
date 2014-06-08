@@ -1,0 +1,249 @@
+\appendix
+\chapter{ИСХОДНЫЕ ТЕКСТЫ ОСНОВНЫХ КОМПОНЕНТОВ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ} \label{AppendixA}
+
+\section{Сравнение версий документа с помощью LibreOffice}\label{AppendixPython}
+\begin{minted}[linenos,
+               numbersep=5pt,
+               fontsize=\scriptsize,
+               frame=leftline,
+               obeytabs,
+               framesep=2mm]{python}
+#! /usr/bin/env python3
+# Copyright Viktor Kartashov 2014
+
+import sys,uno,os
+from time import sleep
+from com.sun.star.beans import PropertyValue
+from com.sun.star.beans.PropertyState import DIRECT_VALUE
+
+# launching libreoffice
+newpid = os.fork()
+if newpid == 0:
+  os.system("/usr/bin/startlo.sh")
+  sys.exit()
+sleep(1)
+
+local = uno.getComponentContext()
+resolver = local.ServiceManager.createInstanceWithContext("com.sun.star.bridge.UnoUrlResolver",
+                                                                                          local)
+context = resolver.resolve("uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext")
+desktop = context.ServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", context)
+
+url1 = "file://" + str(sys.argv[1])
+url2 = "file://" + str(sys.argv[2])
+
+props = []
+props.append(PropertyValue('ShowTrackedChanges',0,True,DIRECT_VALUE))
+document = desktop.loadComponentFromURL(url2, "_blank", 0, (tuple(props)))
+
+dispatcher = context.ServiceManager.createInstanceWithContext("com.sun.star.frame.DispatchHelper",
+                                                                                          context)
+dispatcher.executeDispatch(document.getCurrentController().getFrame(), ".uno:ShowTrackedChanges",
+                                                                            "", 0, (tuple(props)))
+
+props[0] = PropertyValue('URL',0,url1,DIRECT_VALUE)
+dispatcher.executeDispatch(document.getCurrentController().getFrame(), ".uno:CompareDocuments",
+                                                                            "", 0, (tuple(props)))
+
+sys.exit()
+\end{minted}
+
+ \section{Проверка и отображение статуса электронной подписи}\label{AppendixPerl}
+\begin{minted}[linenos,
+               numbersep=5pt,
+               fontsize=\scriptsize,
+               frame=leftline,
+               obeytabs,
+               framesep=2mm]{perl}
+sub parse_commit_text {
+  my ($commit_text, $withparents) = @_;
+  my @commit_lines = split '\n', $commit_text;
+  my %co;
+  my @signature = ();
+
+  pop @commit_lines if ($commit_lines[-1] =~ "\0"); # Remove '\0'
+
+  if (! @commit_lines) {
+    return;
+  }
+
+  my $header = shift @commit_lines;
+  if ($header !~ m/^[0-9a-fA-F]{40}/) {
+    return;
+  }
+  ($co{'id'}, my @parents) = split ' ', $header;
+  while (my $line = shift @commit_lines) {
+    last if $line eq "\n";
+    if ($line =~ m/^tree ([0-9a-fA-F]{40})$/) {
+      $co{'tree'} = $1;
+    } elsif ((!defined $withparents) && ($line =~ m/^parent ([0-9a-fA-F]{40})$/)) {
+      push @parents, $1;
+    } elsif ($line =~ m/^author (.*) ([0-9]+) (.*)$/) {
+      $co{'author'} = to_utf8($1);
+      $co{'author_epoch'} = $2;
+      $co{'author_tz'} = $3;
+      if ($co{'author'} =~ m/^([^<]+) <([^>]*)>/) {
+        $co{'author_name'}  = $1;
+        $co{'author_email'} = $2;
+      } else {
+        $co{'author_name'} = $co{'author'};
+      }
+    } elsif ($line =~ m/^committer (.*) ([0-9]+) (.*)$/) {
+      $co{'committer'} = to_utf8($1);
+      $co{'committer_epoch'} = $2;
+      $co{'committer_tz'} = $3;
+      if ($co{'committer'} =~ m/^([^<]+) <([^>]*)>/) {
+        $co{'committer_name'}  = $1;
+        $co{'committer_email'} = $2;
+      } else {
+        $co{'committer_name'} = $co{'committer'};
+      }
+    }
+    elsif ($line =~ /^gpg: /) {
+      push @signature, $line;
+    }
+  }
+  if (!defined $co{'tree'}) {
+    return;
+  };
+  $co{'parents'} = \@parents;
+  $co{'parent'} = $parents[0];
+
+  foreach my $title (@commit_lines) {
+    $title =~ s/^    //;
+    if ($title ne "") {
+      $co{'title'} = chop_str($title, 80, 5);
+      # remove leading stuff of merges to make the interesting part visible
+      if (length($title) > 50) {
+        $title =~ s/^Automatic //;
+        $title =~ s/^merge (of|with) /Merge ... /i;
+        if (length($title) > 50) {
+          $title =~ s/(http|rsync):\/\///;
+        }
+        if (length($title) > 50) {
+          $title =~ s/(master|www|rsync)\.//;
+        }
+        if (length($title) > 50) {
+          $title =~ s/kernel.org:?//;
+        }
+        if (length($title) > 50) {
+          $title =~ s/\/pub\/scm//;
+        }
+      }
+      $co{'title_short'} = chop_str($title, 50, 5);
+      last;
+    }
+  }
+  if (! defined $co{'title'} || $co{'title'} eq "") {
+    $co{'title'} = $co{'title_short'} = '(no commit message)';
+  }
+  # remove added spaces
+  foreach my $line (@commit_lines) {
+    $line =~ s/^    //;
+  }
+  push(@commit_lines, "") if scalar @signature;
+  foreach my $sig (@signature) {
+    push(@commit_lines, $sig);
+  }
+  $co{'comment'} = \@commit_lines;
+
+  my $age = time - $co{'committer_epoch'};
+  $co{'age'} = $age;
+  $co{'age_string'} = age_string($age);
+  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday) = gmtime($co{'committer_epoch'});
+  if ($age > 60*60*24*7*2) {
+    $co{'age_string_date'} = sprintf "%4i-%02u-%02i", 1900 + $year, $mon+1, $mday;
+    $co{'age_string_age'} = $co{'age_string'};
+  } else {
+    $co{'age_string_date'} = $co{'age_string'};
+    $co{'age_string_age'} = sprintf "%4i-%02u-%02i", 1900 + $year, $mon+1, $mday;
+  }
+  return %co;
+}
+
+sub parse_commit {
+  my ($commit_id) = @_;
+  my %co;
+
+  local $/ = "\0";
+
+  open my $fd, "-|", git_cmd(), "show",
+    "--quiet",
+    "--date=raw",
+    "--pretty=format:%H %P%ntree %T%nparent %P%nauthor %an <%ae> %ad%ncommitter
+                     %cn <%ce> %cd%n%GG%n%s%n%n%b",
+    $commit_id,
+    "--",
+    or die_error(500, "Open git-show failed");
+  %co = parse_commit_text(<$fd>, 1);
+  close $fd;
+
+  return %co;
+}
+
+sub git_print_log {
+  my $log = shift;
+  my %opts = @_;
+
+  if ($opts{'-remove_title'}) {
+    # remove title, i.e. first line of log
+    shift @$log;
+  }
+  # remove leading empty lines
+  while (defined $log->[0] && $log->[0] eq "") {
+    shift @$log;
+  }
+
+  # print log
+  my $skip_blank_line = 0;
+  foreach my $line (@$log) {
+    if ($line =~ m/^gpg:(.)+Good(.)+/) {
+      if (! $opts{'-remove_signoff'}) {
+        print "<span class=\"good_sign\">" . esc_html($line) . "</span><br/>\n";
+        $skip_blank_line = 1;
+      }
+      next;
+    }
+    elsif ($line =~ m/^gpg:(.)+BAD(.)+/) {
+      if (! $opts{'-remove_signoff'}) {
+        print "<span class=\"bad_sign\">" . esc_html($line) . "</span><br/>\n";
+        $skip_blank_line = 1;
+      }
+      next;
+    }
+    elsif ($line =~ m/^\s*([A-Z][-A-Za-z]*-[Bb]y|C[Cc]): /) {
+      if (! $opts{'-remove_signoff'}) {
+        print "<span class=\"signoff\">" . esc_html($line) . "</span><br/>\n";
+        $skip_blank_line = 1;
+      }
+      next;
+    }
+
+    if ($line =~ m,\s*([a-z]*link): (https?://\S+),i) {
+      if (! $opts{'-remove_signoff'}) {
+        print "<span class=\"signoff\">" . esc_html($1) . ": " .
+          "<a href=\"" . esc_html($2) . "\">" . esc_html($2) . "</a>" .
+          "</span><br/>\n";
+        $skip_blank_line = 1;
+      }
+      next;
+    }
+
+    # print only one empty line
+    # do not print empty line after signoff
+    if ($line eq "") {
+      next if ($skip_blank_line);
+      $skip_blank_line = 1;
+    } else {
+      $skip_blank_line = 0;
+    }
+
+    print format_log_line_html($line) . "<br/>\n";
+  }
+
+  if ($opts{'-final_empty_line'}) {
+    # end with single empty line
+    print "<br/>\n" unless $skip_blank_line;
+  }
+}
+\end{minted}
