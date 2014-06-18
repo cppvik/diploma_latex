@@ -5,16 +5,21 @@
 \vspace{\baselineskip}
 В целях быстрого захвата рынка большинство СЭД ориентируются на текущие ресурсы предприятий: в качестве целевой ОС используется Microsoft Windows, а базы данных – MS SQL и Oracle. Активное развитие мобильных операционных систем побуждает производителей выпускать клиенты для Android и iOS, а также веб-интерфейс для управления задачами. Функциональность таких версий обычно урезана: например, они не позволяют добавлять к документу цифровую подпись. При этом для государственных и бюджетных учреждений использование программное обеспечение Microsoft является дополнительной крупной статьёй расхода, избежать которой помогает свободное программное обеспечение.
 
-\begin{table}[h!]
-  \captionsetup{justification=raggedright}
-  % \caption{Существующие решения}\label{table:products}
-  \caption{Существующие решения}\label{table:products}
  \begin{center}
-  \begin{tabular}{| >{\centering}m{2.5cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} |}
-  % \hline
+ \renewcommand\multirowsetup{\centering}
+ \begin{longtable}[h]{| >{\centering}m{2.5cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} |}
+  \captionsetup{justification=raggedright}
+  \caption{Существующие системы защиты информации в СЭД} \label{table:products} \tabularnewline
   \hline
-  \rowcolor{Gray} СЭД   & Платформа & Поддержка ОС & Встроенное средство контроля целостности & Поддержка различных средств аутентификации & Разграни-чение прав доступа к объектам системы & Выдача прав на время исполнения поручения \tabularnewline \hline
-  % \hline
+
+ \rowcolor{Gray} СЭД   & Платформа & Поддержка ОС & Встроенное средство контроля целостности & Поддержка различных средств аутентификации & Разграни-чение прав доступа к объектам системы & Выдача прав на время исполнения поручения \tabularnewline \hline \endfirsthead   \hline
+ \multicolumn{7}{|c|}{\small\slshape (продолжение таблицы \ref{table:products})}        \tabularnewline \hline
+\rowcolor{Gray} СЭД   & Платформа & Поддержка ОС & Встроенное средство контроля целостности & Поддержка различных средств аутентификации & Разграни-чение прав доступа к объектам системы & Выдача прав на время исполнения поручения \tabularnewline \hline
+                                              \endhead        \hline
+ % \multicolumn{7}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+                                              \endfoot        \hline
+                                              \endlastfoot
+
   Босс-референт & \color{Green} Lotus / MS SharePoint / JBOSS & \color{Green} Windows / Linux & \color{Red} \textbf{---} &  \color{Green} \textbf{+} & \color{Green} \textbf{+} & +/-- \tabularnewline \hline
 
   1С: Документооборот & \color{Red} 1C: Предприятие & \color{Red} Windows & \color{Red} \textbf{---} & +/-- & +/-- & \color{Red} \textbf{---} \tabularnewline \hline
@@ -36,9 +41,8 @@
   Е1 ЕВФРАТ & \color{Green} MS / Oracle & \color{Red} Windows & +/-- & +/-- & +/-- & \color{Green} \textbf{+} \tabularnewline \hline
 
   \rowcolor{Gray} Весовой коэффициент & & 0.15 & 0.28 & 0.145 & 0.24 & 0.185 \tabularnewline \hline
-  \end{tabular}
- \end{center}
-\end{table}
+\end{longtable}
+\end{center}
 
 \vspace{\baselineskip}
 В части обеспечения безопасности обрабатываемой информации все СЭД располагают базовым набором функций:

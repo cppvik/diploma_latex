@@ -3,13 +3,27 @@
 Для иллюстрации последовательности проводимых работ приведем диаграмму Ганта данного проекта, на которой по оси $X$ изображены календарные дни от начала до конца проекта, а по оси $Y$ – выполняемые этапы работ.
 Диаграмма Ганта приведена на рисунке \ref{img:gant_diagram}. Занятость исполнителей приведена в таблице \ref{table:workers_dates}.
 
-\begin{table} [h!]
-  \captionsetup{justification=raggedright}
-  \caption{Временные затраты на каждый этап работы}\label{table:workers_dates}
- \begin{center}
-  \begin{tabular}{| >{\centering}m{2cm} | >{\centering}m{4cm} | >{\centering}m{4cm} | >{\centering}m{5cm}|}
-  \hline
+\begin{figure} [h] 
+  \center
+  \includegraphics [scale=0.5] {gantt}
+  \caption{Диаграмма Ганта проводимых работ} 
+  \label{img:gant_diagram}  
+\end{figure}
+
+\begin{center}
+ \renewcommand\multirowsetup{\centering}
+ \begin{longtable}[h]{| >{\centering}m{2cm} | >{\centering}m{4cm} | >{\centering}m{4cm} | >{\centering}m{5cm}|}
+	\captionsetup{justification=raggedright}
+	\caption{Занятость исполнителей} \label{table:workers_dates} \tabularnewline
+	\hline
+
+ \rowcolor{Gray}  Код работы  & Дата начала & Дата окончания &  Исполнитель \tabularnewline \hline \endfirsthead   \hline
+ \multicolumn{4}{|c|}{\small\slshape (продолжение таблицы \ref{table:workers_dates})}        \tabularnewline \hline
  \rowcolor{Gray}  Код работы  & Дата начала & Дата окончания &  Исполнитель \tabularnewline \hline
+                                              \endhead        \hline
+ % \multicolumn{3}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+                                              \endfoot        \hline
+                                              \endlastfoot
 
 0-1 & 07.02.2014 & 07.02.2014 & Ведущий программист \tabularnewline \hline
 1-2 & 09.02.2014 & 12.02.2014 & Ведущий программист \tabularnewline \hline
@@ -22,14 +36,7 @@
 8-9 & 08.04.2014 & 17.04.2014 & Программист \tabularnewline \hline
 8-10 &08.04.2014 & 21.04.2014 & Ведущий программист \tabularnewline \hline
 9-11 & 22.04.2014 & 28.04.2014 & Ведущий программист \tabularnewline \hline
-   \end{tabular}
- \end{center}
-\end{table}
+\end{longtable}
+\end{center}
 
-\begin{figure} [h!] 
-  \center
-  \includegraphics [scale=0.5] {gantt}
-  \caption{Диаграмма Ганта проводимых работ} 
-  \label{img:gant_diagram}  
-\end{figure}
 \FloatBarrier

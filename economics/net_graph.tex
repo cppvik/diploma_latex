@@ -67,14 +67,21 @@
 
 
 Рассчитанные оставшиеся параметры элементов сети (сроки наступления событий, резервы времени событий, полный и свободный резервы времени работ) приведены в таблице \ref{table:time_per_work}.
-\begin{table} [h!]
-  
-  \captionsetup{justification=raggedright}
-  \caption{Временные затраты на каждый этап работы}\label{table:time_per_work}
+
  \begin{center}
-  \begin{tabular}{| c | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} |}
+ \renewcommand\multirowsetup{\centering}
+ \begin{longtable}[h]{| c | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} | >{\centering}m{1.5cm} |}
+  \captionsetup{justification=raggedright}
+  \caption{Временн\'{ы}е затраты на каждый этап работы} \label{table:time_per_work} \tabularnewline
   \hline
+
+ \rowcolor{Gray} $N_i$  & Код работы $i-j$ & $t_{i-j}$, чел / день &  $T_i^P$, чел / день & $T_i^\textrm{П}$, чел / день & $R_i$, чел / день & $R_{i-j}^\textrm{П}$, чел / день & $R_{i-j}^C$, чел / день \tabularnewline \hline \endfirsthead   \hline
+ \multicolumn{8}{|c|}{\small\slshape (продолжение таблицы \ref{table:time_per_work})}        \tabularnewline \hline
  \rowcolor{Gray} $N_i$  & Код работы $i-j$ & $t_{i-j}$, чел / день &  $T_i^P$, чел / день & $T_i^\textrm{П}$, чел / день & $R_i$, чел / день & $R_{i-j}^\textrm{П}$, чел / день & $R_{i-j}^C$, чел / день \tabularnewline \hline
+                                              \endhead        \hline
+ % \multicolumn{3}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+                                              \endfoot        \hline
+                                              \endlastfoot
 
  0 & 0-1 & 1 & 0 & 0 & 0 & 0 & 0 \tabularnewline \hline
  1 & 1-2 & 3 & 1 & 1 & 0 & 0 & 0 \tabularnewline \hline
@@ -91,9 +98,8 @@
   10 & 10-12& 0 & 51 & 54 & 3 & 0 & 0 \tabularnewline \hline
   11 & 11-12 & 0 & 54 & 54 & 0 & 0 & 0 \tabularnewline \hline
   12 & - & - & 54 & 54 & 0 & 0 & 0 \tabularnewline \hline
-   \end{tabular}
- \end{center}
-\end{table}
+\end{longtable}
+\end{center}
 
 Здесь \textbf{ранний срок совершения события} $T_j^P$ определяет минимальное время, необходимое для выполнения всех работ, предшествующих данному событию и равен продолжительности наибольшего из путей, ведущих от исходного события к рассматриваемому:
 \begin{equation}

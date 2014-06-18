@@ -56,13 +56,21 @@ C_\textrm{ПРИБ} = (\Delta K + K_\textrm{ВН}) \cdot D_\textrm{ПРИБ} \cd
 
 Фрагмент таблицы общего баланса приведен в таблице \ref{table:balance}. Из таблицы видно, что в августе 2014 года возможно досрочное погашение кредита. Структура дохода показана на рисунке \ref{img:income_structure}.
 
-\begin{table} [h!]
-  \captionsetup{justification=raggedright}
-  \caption{Фрагмент таблицы общего баланса}\label{table:balance}
  \begin{center}
-  \begin{tabular}{| >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} |}
+ \renewcommand\multirowsetup{\centering}
+ \begin{longtable}[h]{| >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} | >{\centering}m{2cm} |}
+  \captionsetup{justification=raggedright}
+  \caption{Таблица общего баланса} \label{table:balance} \tabularnewline
   \hline
+
+ \rowcolor{Gray} Период расчёта  & Баланс начальный, руб. & Сумма продаж, руб. & Расход (включая сумму погашения кредита), руб. &  Чистая прибыль, руб. & Баланс конечный, руб. & Остаток по кредиту, руб. \tabularnewline \hline \endfirsthead   \hline
+ \multicolumn{7}{|c|}{\small\slshape (продолжение таблицы \ref{table:balance})}        \tabularnewline \hline
  \rowcolor{Gray} Период расчёта  & Баланс начальный, руб. & Сумма продаж, руб. & Расход (включая сумму погашения кредита), руб. &  Чистая прибыль, руб. & Баланс конечный, руб. & Остаток по кредиту, руб. \tabularnewline \hline
+                                              \endhead        \hline
+ % \multicolumn{3}{|r|}{\small\slshape продолжение следует}  \tabularnewline \hline
+                                              \endfoot        \hline
+                                              \endlastfoot
+
 
 02-04.2014 & 650000,00 & 0,00 & 646074,29 & -646074,29 & 3925,71 & 701421,00 \tabularnewline \hline
 05.2014 & 3925,71 & 200000,00 & 33401,00 & 166599,00 & 170524,71 & 668020,00 \tabularnewline \hline
@@ -70,9 +78,8 @@ C_\textrm{ПРИБ} = (\Delta K + K_\textrm{ВН}) \cdot D_\textrm{ПРИБ} \cd
 07.2014 & 337123,71 & 200000,00 & 33401,00 & 166599,00 & 503722,71 & 601218,00 \tabularnewline \hline
 08.2014 & 503722,71 & 200000,00 & 33401,00 & 166599,00 & 670231,71 & 567817,00 \tabularnewline \hline
 
-   \end{tabular}
- \end{center}
-\end{table}
+\end{longtable}
+\end{center}
 
 \begin{figure} [h!] 
   \center
